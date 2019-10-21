@@ -20,7 +20,7 @@ RUN mkdir /docker-entrypoint-initdb.d
 RUN set -ex \
 	&& key='B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8' \
 	&& export GNUPGHOME="$(mktemp -d)" \
-	&& gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" \
+	&& gpg --no-tty --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" \
 	&& gpg --export "$key" > /etc/apt/trusted.gpg.d/postgres.gpg \
 	&& rm -rf "$GNUPGHOME"
 
