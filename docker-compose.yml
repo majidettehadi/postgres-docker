@@ -3,7 +3,7 @@ version: "3"
 services:
   postgres:
     image: "majid7221/postgres:${IMAGE_TAG}"
-    restart: until-stopped
+    restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - ./volumes/postgres:/var/lib/postgresql/data
